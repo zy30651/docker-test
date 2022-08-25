@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About修改后</router-link>
+    <router-link to="/about">About修改后2</router-link>
   </div>
   <router-view />
 </template>
