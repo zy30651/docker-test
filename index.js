@@ -76,7 +76,7 @@ http
 
       // 创建 docker 容器
       execSync(
-        `docker run -d -p 8888:80 --name ${data.repository.name}-container  ${data.repository.name}-image:latest`,
+        `docker run -d -p 8899:80 --name ${data.repository.name}-container  ${data.repository.name}-image:latest`,
         {
           stdio: "inherit",
         }
@@ -84,6 +84,9 @@ http
 
       console.log("deploy success");
       res.end("ok");
+    } else {
+      console.log("get success");
+      res.end("get ok");
     }
   })
   .listen(3000, () => {
