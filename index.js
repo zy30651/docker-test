@@ -47,6 +47,7 @@ http
           stdio: "inherit",
         }
       );
+      e;
 
       // 复制 Dockerfile 到项目目录
       fs.copyFileSync(
@@ -75,7 +76,7 @@ http
 
       // 创建 docker 容器
       execSync(
-        `docker run -d -p 8899:80 -v /mnt/docker/docker-test-html:/usr/share/nginx/html  --name ${data.repository.name}-container  ${data.repository.name}-image:latest`,
+        `docker run -d -p 8899:80 -v /mnt/docker/docker-test-html:/usr/share/nginx/html  --name ${data.repository.name}-container  ${data.repository.name}-image:latest | rm /usr/share/nginx/html | mv /usr/share/nginx/html_old /usr/share/nginx/html`,
         {
           stdio: "inherit",
         }
