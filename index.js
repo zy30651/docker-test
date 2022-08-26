@@ -47,6 +47,7 @@ http
           stdio: "inherit",
         }
       );
+      console.log("拉取仓库最新代码结束");
 
       // 复制 Dockerfile 到项目目录
       fs.copyFileSync(
@@ -59,7 +60,7 @@ http
         path.resolve(__dirname, `./.dockerignore`),
         path.resolve(projectDir, "./.dockerignore")
       );
-
+      console.log("文档copy结束");
       // 创建 docker 镜像
       console.log("创建 docker 镜像 前");
       execSync(`docker build . -t ${data.repository.name}-image:latest `, {
