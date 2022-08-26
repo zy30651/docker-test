@@ -47,7 +47,6 @@ http
           stdio: "inherit",
         }
       );
-      e;
 
       // 复制 Dockerfile 到项目目录
       fs.copyFileSync(
