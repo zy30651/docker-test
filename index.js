@@ -42,7 +42,7 @@ http
 
       // 拉取仓库最新代码
       execSync(
-        `git clone https://github.com/zy30651/${data.repository.name}.git ${projectDir}`,
+        `git clone git://github.com/zy30651/${data.repository.name}.git ${projectDir}`,
         {
           stdio: "inherit",
         }
