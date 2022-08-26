@@ -47,7 +47,6 @@ http
           stdio: "inherit",
         }
       );
-      console.log("拉取仓库最新代码结束");
 
       // 复制 Dockerfile 到项目目录
       fs.copyFileSync(
@@ -60,34 +59,27 @@ http
         path.resolve(__dirname, `./.dockerignore`),
         path.resolve(projectDir, "./.dockerignore")
       );
-      console.log("文档copy结束");
       // 创建 docker 镜像
-      console.log("创建 docker 镜像 前");
       execSync(`docker build . -t ${data.repository.name}-image:latest `, {
         stdio: "inherit",
         cwd: projectDir,
       });
-      console.log("创建 docker 镜像 后");
 
       // 销毁 docker 容器
-      console.log("销毁 docker 容器 前");
       execSync(
         `docker ps -a -f "name=^${data.repository.name}-container" --format="{{.Names}}" | xargs -r docker stop | xargs -r docker rm`,
         {
           stdio: "inherit",
         }
       );
-      console.log("销毁 docker 容器 后");
 
       // 创建 docker 容器
-      console.log("创建 docker 容器 前");
       execSync(
         `docker run -d -p 8899:80 --name ${data.repository.name}-container  ${data.repository.name}-image:latest`,
         {
           stdio: "inherit",
         }
       );
-      console.log("创建 docker 容器 后");
 
       console.log("deploy success");
       res.end("ok");
