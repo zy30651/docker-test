@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">Home-Ali223344</router-link> |
-    <router-link to="/about">About-ali2</router-link>
+    <router-link to="/about">About-ali432</router-link>
   </div>
   <router-view />
 </template>
