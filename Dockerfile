@@ -12,4 +12,4 @@ FROM nginx:stable-alpine as production-stage
 VOLUME ["/usr/share/nginx/html"]
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["docker volume list;","nginx", "-g", "daemon off;"]
