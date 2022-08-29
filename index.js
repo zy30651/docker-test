@@ -36,6 +36,9 @@ http
     console.log("receive request");
     console.log(req.url);
     if (req.method === "POST" && req.url === "/") {
+      if (req.url === "/createdocker") {
+        console.log("createdocker");
+      }
       const data = await resolvePost(req);
       const projectDir = path.resolve(`./${data.repository.name}`);
       deleteFolderRecursive(projectDir);
